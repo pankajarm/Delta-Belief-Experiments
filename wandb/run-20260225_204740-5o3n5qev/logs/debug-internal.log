@@ -1,9 +1,0 @@
-{"time":"2026-02-25T20:47:41.092072904Z","level":"INFO","msg":"stream: starting","core version":"0.25.0"}
-{"time":"2026-02-25T20:47:41.278503418Z","level":"INFO","msg":"stream: created new stream","id":"5o3n5qev"}
-{"time":"2026-02-25T20:47:41.278618481Z","level":"INFO","msg":"handler: started","stream_id":"5o3n5qev"}
-{"time":"2026-02-25T20:47:41.278701522Z","level":"INFO","msg":"stream: started","id":"5o3n5qev"}
-{"time":"2026-02-25T20:47:41.278789424Z","level":"INFO","msg":"writer: started","stream_id":"5o3n5qev"}
-{"time":"2026-02-25T20:47:41.278799214Z","level":"INFO","msg":"sender: started","stream_id":"5o3n5qev"}
-{"time":"2026-02-25T21:05:58.645112751Z","level":"INFO","msg":"flowcontrol: backed up, offloading to disk","recordNumber":212}
-{"time":"2026-02-25T21:05:58.673808164Z","level":"INFO","msg":"flowcontrol: unblocked","totalOffloaded":84}
-{"time":"2026-02-25T21:37:41.77545893Z","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/yaagi/delta_belief_rl/5o3n5qev/file_stream\": read tcp 10.19.89.105:60516->35.186.228.49:443: read: connection reset by peer"}

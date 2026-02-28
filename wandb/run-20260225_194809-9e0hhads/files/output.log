@@ -1,8 +1,0 @@
-Found checkpoint: %s /home/ubuntu/delta-belief-rl/checkpoints/delta_belief_rl/train_8xa100_paper/global_step_4
-Load from checkpoint folder: /home/ubuntu/delta-belief-rl/checkpoints/delta_belief_rl/train_8xa100_paper/global_step_4
-Setting global step to 4
-Resuming from /home/ubuntu/delta-belief-rl/checkpoints/delta_belief_rl/train_8xa100_paper/global_step_4
-[INFO] LLMGenerationManager initialized
-{'enabled': True, 'base_model': 'actor', 'step_model': 'actor', 'agg_method': 'sum', 'normalised': True, 'methods': {'positive'}, 'clipping': {'min': -2, 'max': 2}, 'tau': 1.0, 'level': 'token'}
-{'enabled': False, 'best_n': 2, 'worst_n': 2, 'p_best': 1.0}
-{'enabled': True, 'methods': {'multiple_questions', 'sentence', 'exact', 'length', 'question'}, 'false_positive_behavior': 'yes', 'short_circuit': False}
