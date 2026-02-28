@@ -9,3 +9,4 @@ rollout/
 nohup.out
 *.bak.*
 uv.lock
+wandb/
