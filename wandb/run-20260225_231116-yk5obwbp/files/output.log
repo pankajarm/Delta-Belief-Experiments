@@ -1,0 +1,75 @@
+Found checkpoint: %s /home/ubuntu/delta-belief-rl/checkpoints/delta_belief_rl/train_8xa100_paper/global_step_4
+Load from checkpoint folder: /home/ubuntu/delta-belief-rl/checkpoints/delta_belief_rl/train_8xa100_paper/global_step_4
+Setting global step to 4
+Resuming from /home/ubuntu/delta-belief-rl/checkpoints/delta_belief_rl/train_8xa100_paper/global_step_4
+[INFO] LLMGenerationManager initialized
+{'enabled': True, 'base_model': 'actor', 'step_model': 'actor', 'agg_method': 'sum', 'normalised': True, 'methods': {'positive'}, 'clipping': {'min': -2, 'max': 2}, 'tau': 1.0, 'level': 'token'}
+{'enabled': False, 'best_n': 2, 'worst_n': 2, 'p_best': 1.0}
+{'enabled': True, 'methods': {'multiple_questions', 'question', 'sentence', 'length', 'exact'}, 'false_positive_behavior': 'yes', 'short_circuit': False}
+Dumped generations to validation/train_8xa100_paper/4.jsonl
+("Initial validation metrics: {'val-core/success_rate': 0.14015151515151514, "
+ "'val-core/success_rate/mean@4': 0.14015151515151514, "
+ "'val-core/success_rate/std@4': 0.013060707617157327, "
+ "'val-core/invalid_total': 13, 'val-core/repeated_total': 267, 'pass@k/1': "
+ "0.14015151515151514, 'pass@k/2': 0.21801346801346805, 'pass@k/3': "
+ "0.26515151515151514, 'pass@k/4': 0.29797979797979796, "
+ "'val-core/judge/false_negatives': 0.0009162303664921466, "
+ "'val-core/judge/unrecognized': 0.0, 'val-core/judge/true_positives': "
+ "0.006348167539267016, 'val-core/judge/true_negatives': 0.9920811518324607, "
+ "'val-core/judge/false_positives': 0.0006544502617801048, "
+ "'val-core/judge/wrong_negatives': 0.0, "
+ "'val-core/judge/extra/multiple_questions': 0.0, "
+ "'val-core/judge/extra/no_question': 0.0, "
+ "'val-core/judge/extra/invalid_chars': 0.0, "
+ "'val-core/judge/extra/too_long_word': 0.0, 'val-core/judge/extra/repeated': "
+ "0.017473821989528796, 'val-core/judge/extra/no_question_word': 0.0, "
+ "'val-core/judge/extra/invalid_by_judge': 0.0008507853403141361, "
+ "'val-core/judge/extra/too_short_action': 0.0, "
+ "'val-core/judge/extra/possible_overfit': 0.0, "
+ "'val-core/judge/extra/too_long_action': 0.0, 'val-core/tw_q/reward/mean@4': "
+ "-13.52901734246148, 'val-aux/tw_q/reward/std@4': 5.596050256072095, "
+ "'val-aux/tw_q/reward/best@2/mean': -10.864198828003621, "
+ "'val-aux/tw_q/reward/best@2/std': 5.028990194843179, "
+ "'val-aux/tw_q/reward/worst@2/mean': -16.160903653915483, "
+ "'val-aux/tw_q/reward/worst@2/std': 4.497048069189893, "
+ "'val-core/tw_q/reward/best@4/mean': -8.585963470285588, "
+ "'val-core/tw_q/reward/best@4/std': 3.569979794321064, "
+ "'val-aux/tw_q/reward/worst@4/mean': -18.06601273983175, "
+ "'val-aux/tw_q/reward/worst@4/std': 2.71023252005955, "
+ "'val-aux/tw_q/invalid_count/mean@4': 0.016414141414141416, "
+ "'val-aux/tw_q/invalid_count/std@4': 0.028430126891913387, "
+ "'val-aux/tw_q/invalid_count/best@2/mean': 0.028712121212121213, "
+ "'val-aux/tw_q/invalid_count/best@2/std': 0.0325563472350727, "
+ "'val-aux/tw_q/invalid_count/worst@2/mean': 0.004282828282828282, "
+ "'val-aux/tw_q/invalid_count/worst@2/std': 0.01618480237649008, "
+ "'val-aux/tw_q/invalid_count/best@4/mean': 0.04431818181818182, "
+ "'val-aux/tw_q/invalid_count/best@4/std': 0.030727586670589627, "
+ "'val-aux/tw_q/invalid_count/worst@4/mean': 0.00018181818181818183, "
+ "'val-aux/tw_q/invalid_count/worst@4/std': 0.0032699822099015816, "
+ "'val-aux/tw_q/repeated_count/mean@4': 0.3371212121212121, "
+ "'val-aux/tw_q/repeated_count/std@4': 0.43820811382819497, "
+ "'val-aux/tw_q/repeated_count/best@2/mean': 0.5453333333333334, "
+ "'val-aux/tw_q/repeated_count/best@2/std': 0.4595326226386973, "
+ "'val-aux/tw_q/repeated_count/worst@2/mean': 0.1321919191919192, "
+ "'val-aux/tw_q/repeated_count/worst@2/std': 0.2857996893678316, "
+ "'val-aux/tw_q/repeated_count/best@4/mean': 0.7707373737373737, "
+ "'val-aux/tw_q/repeated_count/best@4/std': 0.38730629861822546, "
+ "'val-aux/tw_q/repeated_count/worst@4/mean': 0.033373737373737375, "
+ "'val-aux/tw_q/repeated_count/worst@4/std': 0.11057843944269134, "
+ "'val-aux/tw_q/num_questions/mean@4': 19.292929292929294, "
+ "'val-aux/tw_q/num_questions/std@4': 0.6975755674458816, "
+ "'val-aux/tw_q/num_questions/best@2/mean': 19.64128787878788, "
+ "'val-aux/tw_q/num_questions/best@2/std': 0.49774426574444564, "
+ "'val-aux/tw_q/num_questions/worst@2/mean': 18.948843434343434, "
+ "'val-aux/tw_q/num_questions/worst@2/std': 0.6793572861617405, "
+ "'val-aux/tw_q/num_questions/best@4/mean': 19.845717171717173, "
+ "'val-aux/tw_q/num_questions/best@4/std': 0.24967604949917288, "
+ "'val-aux/tw_q/num_questions/worst@4/mean': 18.60093939393939, "
+ "'val-aux/tw_q/num_questions/worst@4/std': 0.5200565635095997}")
+step:4 - val-core/success_rate:0.14015151515151514 - val-core/success_rate/mean@4:0.14015151515151514 - val-core/success_rate/std@4:0.013060707617157327 - val-core/invalid_total:13 - val-core/repeated_total:267 - pass@k/1:0.14015151515151514 - pass@k/2:0.21801346801346805 - pass@k/3:0.26515151515151514 - pass@k/4:0.29797979797979796 - val-core/judge/false_negatives:0.0009162303664921466 - val-core/judge/unrecognized:0.0 - val-core/judge/true_positives:0.006348167539267016 - val-core/judge/true_negatives:0.9920811518324607 - val-core/judge/false_positives:0.0006544502617801048 - val-core/judge/wrong_negatives:0.0 - val-core/judge/extra/multiple_questions:0.0 - val-core/judge/extra/no_question:0.0 - val-core/judge/extra/invalid_chars:0.0 - val-core/judge/extra/too_long_word:0.0 - val-core/judge/extra/repeated:0.017473821989528796 - val-core/judge/extra/no_question_word:0.0 - val-core/judge/extra/invalid_by_judge:0.0008507853403141361 - val-core/judge/extra/too_short_action:0.0 - val-core/judge/extra/possible_overfit:0.0 - val-core/judge/extra/too_long_action:0.0 - val-core/tw_q/reward/mean@4:-13.52901734246148 - val-aux/tw_q/reward/std@4:5.596050256072095 - val-aux/tw_q/reward/best@2/mean:-10.864198828003621 - val-aux/tw_q/reward/best@2/std:5.028990194843179 - val-aux/tw_q/reward/worst@2/mean:-16.160903653915483 - val-aux/tw_q/reward/worst@2/std:4.497048069189893 - val-core/tw_q/reward/best@4/mean:-8.585963470285588 - val-core/tw_q/reward/best@4/std:3.569979794321064 - val-aux/tw_q/reward/worst@4/mean:-18.06601273983175 - val-aux/tw_q/reward/worst@4/std:2.71023252005955 - val-aux/tw_q/invalid_count/mean@4:0.016414141414141416 - val-aux/tw_q/invalid_count/std@4:0.028430126891913387 - val-aux/tw_q/invalid_count/best@2/mean:0.028712121212121213 - val-aux/tw_q/invalid_count/best@2/std:0.0325563472350727 - val-aux/tw_q/invalid_count/worst@2/mean:0.004282828282828282 - val-aux/tw_q/invalid_count/worst@2/std:0.01618480237649008 - val-aux/tw_q/invalid_count/best@4/mean:0.04431818181818182 - val-aux/tw_q/invalid_count/best@4/std:0.030727586670589627 - val-aux/tw_q/invalid_count/worst@4/mean:0.00018181818181818183 - val-aux/tw_q/invalid_count/worst@4/std:0.0032699822099015816 - val-aux/tw_q/repeated_count/mean@4:0.3371212121212121 - val-aux/tw_q/repeated_count/std@4:0.43820811382819497 - val-aux/tw_q/repeated_count/best@2/mean:0.5453333333333334 - val-aux/tw_q/repeated_count/best@2/std:0.4595326226386973 - val-aux/tw_q/repeated_count/worst@2/mean:0.1321919191919192 - val-aux/tw_q/repeated_count/worst@2/std:0.2857996893678316 - val-aux/tw_q/repeated_count/best@4/mean:0.7707373737373737 - val-aux/tw_q/repeated_count/best@4/std:0.38730629861822546 - val-aux/tw_q/repeated_count/worst@4/mean:0.033373737373737375 - val-aux/tw_q/repeated_count/worst@4/std:0.11057843944269134 - val-aux/tw_q/num_questions/mean@4:19.292929292929294 - val-aux/tw_q/num_questions/std@4:0.6975755674458816 - val-aux/tw_q/num_questions/best@2/mean:19.64128787878788 - val-aux/tw_q/num_questions/best@2/std:0.49774426574444564 - val-aux/tw_q/num_questions/worst@2/mean:18.948843434343434 - val-aux/tw_q/num_questions/worst@2/std:0.6793572861617405 - val-aux/tw_q/num_questions/best@4/mean:19.845717171717173 - val-aux/tw_q/num_questions/best@4/std:0.24967604949917288 - val-aux/tw_q/num_questions/worst@4/mean:18.60093939393939 - val-aux/tw_q/num_questions/worst@4/std:0.5200565635095997
+Training Progress:   8%|▊         | 5/60 [1:35:39<87:41:32, 5739.87s/it]
+[MID-STEP SAVE] Saving checkpoint after generation phase (step 5)...
+local_global_step_folder: checkpoints/delta_belief_rl/train_8xa100_paper/global_step_5
+[MID-STEP SAVE] Done.
+local_global_step_folder: checkpoints/delta_belief_rl/train_8xa100_paper/global_step_5
+step:5 - judge/false_negatives:0.0015144422722141147 - judge/unrecognized:0.0 - judge/true_positives:0.007833796844453011 - judge/true_negatives:0.989811933805105 - judge/false_positives:0.000743453479086929 - judge/wrong_negatives:9.63735991408982e-05 - judge/extra/multiple_questions:0.0 - judge/extra/no_question:0.00020651485530192473 - judge/extra/invalid_chars:6.883828510064158e-05 - judge/extra/too_long_word:0.0 - judge/extra/repeated:0.011344549384585732 - judge/extra/no_question_word:0.0 - judge/extra/invalid_by_judge:0.001982542610898477 - judge/extra/too_short_action:0.0 - judge/extra/possible_overfit:0.0 - judge/extra/too_long_action:0.0 - state_tokens(total):567586 - state_tokens/coverage:0.41090115904808044 - actor/entropy_loss:0.6988433599472046 - actor/pg_loss:0.05419678188806453 - actor/pg_clipfrac:0.002028389585999927 - actor/ppo_kl:0.0003455771706020035 - actor/pg_clipfrac_lower:0.0 - actor/grad_norm:0.048659492284059525 - perf/mfu/actor:0.15458648203465022 - perf/max_memory_allocated_gb:67.44679069519043 - perf/max_memory_reserved_gb:77.7265625 - perf/cpu_memory_used_gb:47.44675827026367 - actor/lr:3e-05 - training/global_step:5 - training/epoch:1 - critic/eog/mean:-0.5921093821525574 - critic/eog/max:1.850000023841858 - critic/eog/min:-1.0 - critic/eog/std:0.8843205571174622 - critic/rewards/mean:-0.6205340623855591 - critic/rewards/max:2.7997140884399414 - critic/rewards/min:-6.0 - critic/rewards/std:0.2618233263492584 - critic/advantages/mean_per_seq_mean:0.03447230905294418 - critic/advantages/token_max:3.7499945163726807 - critic/advantages/token_min:-3.7499969005584717 - critic/advantages/mean_per_seq_std:0.40989014506340027 - critic/advantages/token_mean_global:-0.05080502852797508 - critic/advantages/token_std_global:0.40989014506340027 - critic/returns/mean_per_seq_mean:0.03447230905294418 - critic/returns/token_max:3.7499945163726807 - critic/returns/token_min:-3.7499969005584717 - critic/returns/mean_per_seq_std:0.40989014506340027 - critic/returns/token_mean_global:-0.05080502852797508 - critic/returns/token_std_global:0.40989014506340027 - critic/elicit_scores/mean:0.7088910341262817 - critic/elicit_scores/max:14.870986938476562 - critic/elicit_scores/min:0.0 - critic/elicit_scores/std:1.158379077911377 - critic/turn_rewards/mean:-0.021145831793546677 - critic/turn_rewards/max:0.0 - critic/turn_rewards/min:-5.0 - critic/turn_rewards/std:0.08440311253070831 - response_length/mean:147.80885314941406 - response_length/max:359.0 - response_length/min:22.0 - response_length/clip_ratio:0.0 - num_questions/mean:18.915104166666666 - num_questions/max:20 - num_questions/min:3 - train/mean_successful:0.17682291666666672 - train/total_invalid:160 - train/mean_invalid:0.041666666666666664 - train/total_repeated:824 - train/mean_repeated:0.21458333333333332 - timing_s/gen:4978.597568850004 - timing_s/reward:1.4189890440029558 - timing_s/old_log_prob:140.41949877899606 - timing_s/adv:1.7226689139934024 - timing_s/update_actor:566.1945770610037 - timing_s/save_checkpoint:27.204883768994478 - timing_s/step:5738.456547272988 - timing_per_token_ms/adv:0.0007972218738978371 - timing_per_token_ms/gen:3.604231871579362 - timing_per_token_ms/update_actor:0.26202522031293557 - perf/total_num_tokens:2160840 - perf/time_per_step:5738.456547272988 - perf/throughput:75.31084298361962

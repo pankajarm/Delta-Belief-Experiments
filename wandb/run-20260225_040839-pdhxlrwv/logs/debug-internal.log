@@ -1,0 +1,8 @@
+{"time":"2026-02-25T04:08:40.192186471Z","level":"INFO","msg":"stream: starting","core version":"0.25.0"}
+{"time":"2026-02-25T04:08:40.4867931Z","level":"INFO","msg":"stream: created new stream","id":"pdhxlrwv"}
+{"time":"2026-02-25T04:08:40.486920622Z","level":"INFO","msg":"handler: started","stream_id":"pdhxlrwv"}
+{"time":"2026-02-25T04:08:40.487018974Z","level":"INFO","msg":"stream: started","id":"pdhxlrwv"}
+{"time":"2026-02-25T04:08:40.487077866Z","level":"INFO","msg":"writer: started","stream_id":"pdhxlrwv"}
+{"time":"2026-02-25T04:08:40.487106746Z","level":"INFO","msg":"sender: started","stream_id":"pdhxlrwv"}
+{"time":"2026-02-25T04:08:40.535297504Z","level":"ERROR","msg":"api: HTTP error","status":404,"method":"POST","url":"https://api.wandb.ai/graphql"}
+{"time":"2026-02-25T04:08:40.535463467Z","level":"ERROR","msg":"runupserter: failed to init run","error":"returned error 404: {\"data\":{\"upsertBucket\":null},\"errors\":[{\"message\":\"entity delta-belief-rl not found during upsertBucket\",\"path\":[\"upsertBucket\"]}]}"}

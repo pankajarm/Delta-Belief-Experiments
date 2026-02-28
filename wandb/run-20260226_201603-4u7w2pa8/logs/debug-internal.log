@@ -1,0 +1,8 @@
+{"time":"2026-02-26T20:16:03.376816193Z","level":"INFO","msg":"stream: starting","core version":"0.25.0"}
+{"time":"2026-02-26T20:16:03.568501621Z","level":"INFO","msg":"stream: created new stream","id":"4u7w2pa8"}
+{"time":"2026-02-26T20:16:03.568646504Z","level":"INFO","msg":"handler: started","stream_id":"4u7w2pa8"}
+{"time":"2026-02-26T20:16:03.568713694Z","level":"INFO","msg":"stream: started","id":"4u7w2pa8"}
+{"time":"2026-02-26T20:16:03.568735505Z","level":"INFO","msg":"writer: started","stream_id":"4u7w2pa8"}
+{"time":"2026-02-26T20:16:03.568764165Z","level":"INFO","msg":"sender: started","stream_id":"4u7w2pa8"}
+{"time":"2026-02-26T20:30:31.34486663Z","level":"INFO","msg":"flowcontrol: backed up, offloading to disk","recordNumber":198}
+{"time":"2026-02-26T20:30:31.34644508Z","level":"INFO","msg":"flowcontrol: unblocked","totalOffloaded":48}

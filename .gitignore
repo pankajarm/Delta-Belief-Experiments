@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.local_logs/
+.ray_jobs/
+checkpoints/
+outputs/
+rollout/
+nohup.out
+*.bak.*
+uv.lock

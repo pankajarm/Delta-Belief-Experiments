@@ -30,9 +30,9 @@ import logging
 import os
 
 # CRITICAL: Set this BEFORE any vLLM imports to select attention backend
-# FA3 is optimized for H100 (Hopper) - testing now that free_cache_engine bug is fixed
+# FA3 requires H100 (Hopper). A100 only supports FA2.
 os.environ["VLLM_ATTENTION_BACKEND"] = "FLASH_ATTN"
-os.environ["VLLM_FLASH_ATTN_VERSION"] = "3"
+os.environ["VLLM_FLASH_ATTN_VERSION"] = "2"
 
 from contextlib import contextmanager
 from typing import Any, Dict, List, Union
@@ -155,7 +155,9 @@ class vLLMRollout(BaseRollout):
         if config.get("limit_images", None):  # support for multi-image data
             limit_mm_per_prompt = {"image": config.get("limit_images")}
 
-        self.inference_engine = LLM(
+        quantization = config.get("quantization", None)
+
+        llm_kwargs = dict(
             model=model_path,
             enable_sleep_mode=config.free_cache_engine,  # True
             tensor_parallel_size=tensor_parallel_size,
@@ -178,6 +180,10 @@ class vLLMRollout(BaseRollout):
             **lora_kwargs,
             **engine_kwargs,
         )
+        if quantization is not None:
+            llm_kwargs["quantization"] = quantization
+
+        self.inference_engine = LLM(**llm_kwargs)
 
         # Offload vllm model to reduce peak memory usage
         if config.free_cache_engine:

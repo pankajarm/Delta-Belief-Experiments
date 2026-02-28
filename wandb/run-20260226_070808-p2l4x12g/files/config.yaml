@@ -1,0 +1,496 @@
+_wandb:
+    value:
+        cli_version: 0.25.0
+        e:
+            e920cnf65cqqur58hm4wtq7pzay3b13m:
+                args:
+                    - --node-ip-address=10.19.89.105
+                    - --node-manager-port=9347
+                    - --object-store-name=/tmp/r/601328/session_2026-02-26_07-06-28_220514_601914/sockets/plasma_store
+                    - --raylet-name=/tmp/r/601328/session_2026-02-26_07-06-28_220514_601914/sockets/raylet
+                    - --redis-address=None
+                    - --metrics-agent-port=0
+                    - --logging-rotate-bytes=536870912
+                    - --logging-rotate-backup-count=5
+                    - --runtime-env-agent-port=0
+                    - --gcs-address=10.19.89.105:9343
+                    - --session-name=session_2026-02-26_07-06-28_220514_601914
+                    - --temp-dir=/tmp/r/601328
+                    - --webui=
+                    - --cluster-id=1c2755d82da7a3b7a4bf70453b11397db40e694199f3ddc872a2c8ac
+                    - --worker-id=5d57b52c2b16f1348fe26bf12ae5d9e2c1e938d03064ca4f38c832a9
+                    - --worker-launch-time-ms=1772089615158
+                    - --node-id=2cb859101d605f697719d8ed9d7ce18cbdfb317f866bc41cdc429a1f
+                    - --runtime-env-hash=703378423
+                codePath: .venv/lib/python3.12/site-packages/ray/_private/workers/default_worker.py
+                codePathLocal: .venv/lib/python3.12/site-packages/ray/_private/workers/default_worker.py
+                cpu_count: 240
+                cpu_count_logical: 240
+                cudaVersion: "12.8"
+                disk:
+                    /:
+                        total: "20812690710528"
+                        used: "124359946240"
+                email: pankymathur@gmail.com
+                executable: /home/ubuntu/delta-belief-rl/.venv/bin/python3
+                git:
+                    commit: 13ed6dcef5a1544441149e18e3d92684d1ed8178
+                    remote: https://github.com/bethgelab/delta-belief-rl.git
+                gpu: NVIDIA A100-SXM4-80GB
+                gpu_count: 8
+                gpu_nvidia:
+                    - architecture: Ampere
+                      cudaCores: 6912
+                      memoryTotal: "85899345920"
+                      name: NVIDIA A100-SXM4-80GB
+                      uuid: GPU-43dcc7e9-fb25-84e4-c060-b12b27afdf50
+                    - architecture: Ampere
+                      cudaCores: 6912
+                      memoryTotal: "85899345920"
+                      name: NVIDIA A100-SXM4-80GB
+                      uuid: GPU-7685a6ac-e3bc-8aa1-0e3d-475758a2ea14
+                    - architecture: Ampere
+                      cudaCores: 6912
+                      memoryTotal: "85899345920"
+                      name: NVIDIA A100-SXM4-80GB
+                      uuid: GPU-e037261a-f5e6-7b02-0c02-f9032a42cb91
+                    - architecture: Ampere
+                      cudaCores: 6912
+                      memoryTotal: "85899345920"
+                      name: NVIDIA A100-SXM4-80GB
+                      uuid: GPU-133d9015-3d92-619d-5816-2f079307c01b
+                    - architecture: Ampere
+                      cudaCores: 6912
+                      memoryTotal: "85899345920"
+                      name: NVIDIA A100-SXM4-80GB
+                      uuid: GPU-46bec66d-f8b6-bffa-684f-78aac24d061d
+                    - architecture: Ampere
+                      cudaCores: 6912
+                      memoryTotal: "85899345920"
+                      name: NVIDIA A100-SXM4-80GB
+                      uuid: GPU-13aba102-17a7-fbbb-3a43-aa932d221881
+                    - architecture: Ampere
+                      cudaCores: 6912
+                      memoryTotal: "85899345920"
+                      name: NVIDIA A100-SXM4-80GB
+                      uuid: GPU-26f83d55-20c7-440e-6053-04c9a2fde045
+                    - architecture: Ampere
+                      cudaCores: 6912
+                      memoryTotal: "85899345920"
+                      name: NVIDIA A100-SXM4-80GB
+                      uuid: GPU-0d55ae86-b2d0-64d4-615c-af168bbd17d1
+                host: 129-213-151-54
+                memory:
+                    total: "1902324948992"
+                os: Linux-6.8.0-1040-nvidia-x86_64-with-glibc2.35
+                program: /home/ubuntu/delta-belief-rl/.venv/lib/python3.12/site-packages/ray/_private/workers/default_worker.py
+                python: CPython 3.12.12
+                root: /home/ubuntu/delta-belief-rl
+                slurm:
+                    job_id: "601328"
+                startedAt: "2026-02-26T07:08:08.973299Z"
+                writerId: e920cnf65cqqur58hm4wtq7pzay3b13m
+        m: []
+        python_version: 3.12.12
+        t:
+            "1":
+                - 1
+                - 11
+                - 30
+                - 41
+                - 49
+                - 51
+                - 71
+                - 98
+                - 105
+            "2":
+                - 1
+                - 11
+                - 30
+                - 41
+                - 49
+                - 51
+                - 71
+                - 98
+                - 105
+            "3":
+                - 2
+                - 13
+                - 16
+            "4": 3.12.12
+            "5": 0.25.0
+            "6": 4.57.6
+            "12": 0.25.0
+            "13": linux-x86_64
+actor_rollout_ref:
+    value:
+        actor:
+            checkpoint:
+                contents:
+                    - model
+                    - optimizer
+                    - extra
+            clip_ratio: 0.2
+            clip_ratio_c: 3
+            clip_ratio_high: 0.28
+            clip_ratio_low: 0.2
+            cot: false
+            entropy_coeff: 0
+            fsdp_config:
+                fsdp_size: -1
+                optimizer_offload: false
+                param_offload: false
+                wrap_policy:
+                    min_num_params: 0
+            grad_clip: 1
+            kl_loss_coef: 0.001
+            kl_loss_type: low_var_kl
+            loss_agg_mode: token-mean
+            optim:
+                betas:
+                    - 0.9
+                    - 0.95
+                lr: 3e-05
+                lr_warmup_steps: -1
+                lr_warmup_steps_ratio: 0
+                min_lr_ratio: null
+                total_training_steps: 60
+                warmup_style: constant
+                weight_decay: 0.01
+            ppo_epochs: 1
+            ppo_max_token_len_per_gpu: 70000
+            ppo_micro_batch_size: null
+            ppo_micro_batch_size_per_gpu: 16
+            ppo_mini_batch_size: 80
+            shuffle: false
+            state_masking: true
+            strategy: fsdp
+            thinking: false
+            tis_imp_ratio_cap: -1
+            ulysses_sequence_parallel_size: 1
+            use_dynamic_bsz: false
+            use_kl_loss: false
+            use_torch_compile: true
+        gen_n: 16
+        hybrid_engine: true
+        model:
+            adapters:
+                - alpha: 64
+                  name: actor_lora
+                  r: 64
+                  target_modules: all-linear
+            ema_beta: 0.95
+            ema_warmup_steps: 0
+            enable_gradient_checkpointing: true
+            external_lib: null
+            lora_path: lora_adapters
+            lora_rank: 64
+            path: Klingspor/Qwen3-1.7B-SFT
+            skip_lora_adapter_files_on_resume: true
+            use_liger: true
+            use_remove_padding: true
+        ngpus: 1
+        ref:
+            fsdp_config:
+                param_offload: false
+                wrap_policy:
+                    min_num_params: 0
+            log_prob_max_token_len_per_gpu: 70000
+            log_prob_micro_batch_size: null
+            log_prob_micro_batch_size_per_gpu: 16
+            log_prob_use_dynamic_bsz: false
+            resource_pool_actor: true
+            strategy: fsdp
+            ulysses_sequence_parallel_size: 1
+            use_torch_compile: true
+        resume_mode: auto
+        role: actor_rollout
+        rollout:
+            chat_scheduler: null
+            detokenize: true
+            disable_log_stats: true
+            do_sample: true
+            dtype: bfloat16
+            enable_chunked_prefill: true
+            enforce_eager: true
+            engine_kwargs:
+                swap_space: null
+            free_cache_engine: true
+            gpu_memory_utilization: 0.5
+            ignore_eos: false
+            layered_summon: true
+            load_format: safetensors
+            log_prob_max_token_len_per_gpu: 70000
+            log_prob_micro_batch_size: null
+            log_prob_micro_batch_size_per_gpu: 16
+            log_prob_use_dynamic_bsz: false
+            max_model_len: null
+            max_num_batched_tokens: 8192
+            max_num_seqs: 1024
+            mode: sync
+            "n": 1
+            name: vllm
+            prompt_length: 2500
+            response_length: 50
+            temperature: 1
+            tensor_model_parallel_size: 1
+            top_k: -1
+            top_p: 1
+            use_fire_sampling: false
+            val_kwargs:
+                do_sample: true
+                "n": 1
+                temperature: 0.7
+                top_k: 20
+                top_p: 0.8
+        val_only: false
+algorithm:
+    value:
+        adv_estimator: grpo_turn
+        alpha: 0.1
+        clip_adv_in_mtr: false
+        clip_adv_max: 3
+        clip_adv_min: -3
+        filter_groups:
+            enabled: false
+            max_num_gen_batches: 10
+            metric: seq_reward
+        gamma: 1
+        kl_ctrl:
+            horizon: 10000
+            kl_coef: 0.001
+            target_kl: 0.1
+            type: fixed
+        kl_penalty: kl
+        lam: 1
+        norm_adv_by_std_in_grpo: true
+        norm_adv_in_mtr: false
+        only_propagate_eog_in_mtr: true
+        use_kl_in_reward: false
+critic:
+    value:
+        checkpoint:
+            contents:
+                - model
+                - optimizer
+                - extra
+        cliprange_value: 0.5
+        forward_max_token_len_per_gpu: 32768
+        forward_micro_batch_size: null
+        forward_micro_batch_size_per_gpu: null
+        grad_clip: 1
+        model:
+            enable_gradient_checkpointing: true
+            external_lib: null
+            fsdp_config:
+                fsdp_size: -1
+                optimizer_offload: false
+                param_offload: false
+                wrap_policy:
+                    min_num_params: 0
+            path: ~/models/deepseek-llm-7b-chat
+            tokenizer_path: Klingspor/Qwen3-1.7B-SFT
+            use_remove_padding: false
+        optim:
+            lr: 1e-05
+            lr_warmup_steps_ratio: 0
+            min_lr_ratio: null
+            total_training_steps: 60
+            warmup_style: constant
+            weight_decay: 0.01
+        ppo_epochs: 1
+        ppo_max_token_len_per_gpu: 32768
+        ppo_micro_batch_size: null
+        ppo_micro_batch_size_per_gpu: null
+        ppo_mini_batch_size: 80
+        rollout_n: 1
+        shuffle: false
+        strategy: fsdp
+        ulysses_sequence_parallel_size: 1
+        use_dynamic_bsz: false
+custom_reward_function:
+    value:
+        name: compute_score
+        path: null
+data:
+    value:
+        custom_cls:
+            name: null
+            path: null
+        enable_thinking: false
+        filter_overlong_prompts: false
+        filter_overlong_prompts_workers: 1
+        image_key: images
+        max_prompt_length: 2500
+        max_response_length: 50
+        max_start_length: 250
+        prompt_key: prompt
+        return_raw_chat: false
+        return_raw_input_ids: false
+        reward_fn_key: data_source
+        sample_count:
+            train: -1
+            val: -1
+        shuffle: true
+        system_key: system_prompt
+        tokenizer: null
+        train_batch_size: 240
+        train_files: delta_belief_rl/env/twenty_questions/direct/coca_plus/train_rl.parquet
+        truncation: error
+        val_batch_size: null
+        val_files: delta_belief_rl/env/twenty_questions/direct/coca_plus/val.parquet
+        video_key: videos
+judge_rollout:
+    value:
+        cot: true
+        enable: true
+        env: twenty_questions
+        model:
+            input_tokenizer: Klingspor/Qwen3-1.7B-SFT
+            path: Qwen/Qwen3-14B
+        ngpus: 4
+        repeated_prompt: true
+        rollout:
+            chat_scheduler: null
+            detokenize: true
+            disable_log_stats: true
+            dtype: bfloat16
+            enable_chunked_prefill: true
+            enforce_eager: true
+            engine_kwargs:
+                swap_space: null
+            free_cache_engine: false
+            gpu_memory_utilization: 0.5
+            ignore_eos: false
+            load_format: auto
+            max_model_len: null
+            max_num_batched_tokens: 2048
+            max_num_seqs: 1024
+            mode: sync
+            "n": 1
+            name: vllm
+            prompt_length: 1600
+            response_length: 250
+            temperature: 0.7
+            tensor_model_parallel_size: 4
+            top_k: 20
+            top_p: 0.8
+            use_fire_sampling: false
+            val_kwargs:
+                do_sample: true
+                "n": 1
+                temperature: 0.7
+                top_k: 20
+                top_p: 0.8
+        thinking: false
+multi_turn:
+    value:
+        belief:
+            agg: sum
+            data_dir: null
+            enabled: false
+            method:
+                - logprob
+                - confidence
+        debug: false
+        enable: true
+        env: twenty_questions
+        logprob_reward:
+            agg: sum
+            base_model: actor
+            clip_max: 2
+            clip_min: -2
+            enabled: true
+            methods:
+                - positive
+            normalised: true
+            step_model: actor
+            tau: 1
+        logprob_sampling:
+            best_n: 2
+            enabled: false
+            p_best: 1
+            worst_n: 2
+        max_turns:
+            train: 20
+            val: 20
+        reward:
+            attribution_level: None
+            signals:
+                action_len: -0
+                all_valid: 0
+                invalid_action: -5
+                repeated_action: -1
+                traj_len: -0.05
+                win: 2
+            weight_elicit: 0.1
+        train:
+            "n": 16
+        val:
+            "n": 4
+        verify_judge:
+            enabled: true
+            false_positive_behavior: "yes"
+            methods:
+                - exact
+                - sentence
+                - question
+                - multiple_questions
+                - length
+            short_circuit: false
+ray_init:
+    value:
+        num_cpus: null
+reward_model:
+    value:
+        enable: false
+        forward_max_token_len_per_gpu: 32768
+        launch_reward_fn_async: false
+        max_length: null
+        micro_batch_size: null
+        micro_batch_size_per_gpu: null
+        model:
+            external_lib: null
+            fsdp_config:
+                fsdp_size: -1
+                param_offload: false
+                wrap_policy:
+                    min_num_params: 0
+            input_tokenizer: Klingspor/Qwen3-1.7B-SFT
+            path: ~/models/FsfairX-LLaMA3-RM-v0.1
+            use_remove_padding: false
+        reward_manager: naive
+        strategy: fsdp
+        ulysses_sequence_parallel_size: 1
+        use_dynamic_bsz: false
+seed:
+    value: 42
+trainer:
+    value:
+        balance_batch: false
+        critic_warmup: 0
+        default_hdfs_dir: null
+        default_local_dir: checkpoints/delta_belief_rl/train_8xa100_paper
+        del_local_ckpt_after_load: false
+        experiment_name: train_8xa100_paper
+        log_val_generations: 0
+        logger:
+            - console
+            - wandb
+        max_actor_ckpt_to_keep: null
+        max_critic_ckpt_to_keep: null
+        n_gpus_per_node: 8
+        nnodes: 1
+        project_name: delta_belief_rl
+        ray_wait_register_center_timeout: 300
+        resume_from_path: null
+        resume_mode: auto
+        rollout_data_dir: rollout/train_8xa100_paper
+        rollout_freq: 10
+        save_freq: 1
+        test_freq: 4
+        total_epochs: 15
+        total_training_steps: null
+        val_before_train: true
+        val_only: false
+        validation_data_dir: validation/train_8xa100_paper

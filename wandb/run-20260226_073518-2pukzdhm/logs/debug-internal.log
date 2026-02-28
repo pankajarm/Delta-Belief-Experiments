@@ -1,0 +1,6 @@
+{"time":"2026-02-26T07:35:18.3806975Z","level":"INFO","msg":"stream: starting","core version":"0.25.0"}
+{"time":"2026-02-26T07:35:18.577052536Z","level":"INFO","msg":"stream: created new stream","id":"2pukzdhm"}
+{"time":"2026-02-26T07:35:18.577916602Z","level":"INFO","msg":"stream: started","id":"2pukzdhm"}
+{"time":"2026-02-26T07:35:18.578033246Z","level":"INFO","msg":"writer: started","stream_id":"2pukzdhm"}
+{"time":"2026-02-26T07:35:18.578032396Z","level":"INFO","msg":"handler: started","stream_id":"2pukzdhm"}
+{"time":"2026-02-26T07:35:18.578089347Z","level":"INFO","msg":"sender: started","stream_id":"2pukzdhm"}

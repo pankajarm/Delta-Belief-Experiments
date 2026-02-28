@@ -1,0 +1,9 @@
+{"time":"2026-02-26T17:51:29.891621814Z","level":"INFO","msg":"stream: starting","core version":"0.25.0"}
+{"time":"2026-02-26T17:51:30.087570239Z","level":"INFO","msg":"stream: created new stream","id":"jnmnythb"}
+{"time":"2026-02-26T17:51:30.087749353Z","level":"INFO","msg":"handler: started","stream_id":"jnmnythb"}
+{"time":"2026-02-26T17:51:30.087904665Z","level":"INFO","msg":"stream: started","id":"jnmnythb"}
+{"time":"2026-02-26T17:51:30.087978207Z","level":"INFO","msg":"writer: started","stream_id":"jnmnythb"}
+{"time":"2026-02-26T17:51:30.087979517Z","level":"INFO","msg":"sender: started","stream_id":"jnmnythb"}
+{"time":"2026-02-26T18:10:06.044845125Z","level":"INFO","msg":"flowcontrol: backed up, offloading to disk","recordNumber":212}
+{"time":"2026-02-26T18:10:06.045940526Z","level":"INFO","msg":"flowcontrol: unblocked","totalOffloaded":25}
+{"time":"2026-02-26T18:16:00.883788989Z","level":"INFO","msg":"api: retrying HTTP error","status":502,"url":"https://api.wandb.ai/files/yaagi/delta_belief_rl/jnmnythb/file_stream","body":"\n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>502 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The server encountered a temporary error and could not complete your request.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n"}

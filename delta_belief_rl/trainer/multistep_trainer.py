@@ -1775,6 +1775,15 @@ class RayMultiStepTrainer:
                         )
                         multi_step_manager.shutdown_rollout_state()
 
+                    # Mid-step checkpoint: save after generation (longest phase ~80min)
+                    # so we don't lose progress if crash happens during actor update
+                    try:
+                        print(f'[MID-STEP SAVE] Saving checkpoint after generation phase (step {self.global_steps})...')
+                        self._save_checkpoint()
+                        print(f'[MID-STEP SAVE] Done.')
+                    except Exception as e:
+                        print(f'[MID-STEP SAVE] Warning: mid-step save failed: {e}')
+
                     # Extract and repeat non-tensor fields
                     non_tensor_batch = {
                         "reward_model": batch_dict.pop("reward_model"),

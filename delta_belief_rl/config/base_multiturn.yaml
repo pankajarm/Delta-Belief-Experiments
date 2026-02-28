@@ -258,6 +258,7 @@ judge_rollout:
     max_num_seqs: 1024
     disable_log_stats: True
     enable_chunked_prefill: True
+    quantization: null  # Set to "awq" or "gptq" to force specific quantization method
     n: 1
     detokenize: True
     engine_kwargs: # inference engine parameters
@@ -266,7 +267,7 @@ judge_rollout:
       # sampling parameters for validation
       top_k: 20 # 0 for hf rollout, -1 for vllm rollout
       top_p: 0.8
-      temperature: 0.7 
+      temperature: 0.7
       n: 1
       do_sample: True # default eager for va
 

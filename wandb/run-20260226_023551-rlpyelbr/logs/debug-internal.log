@@ -1,0 +1,6 @@
+{"time":"2026-02-26T02:35:51.439480943Z","level":"INFO","msg":"stream: starting","core version":"0.25.0"}
+{"time":"2026-02-26T02:35:51.628665472Z","level":"INFO","msg":"stream: created new stream","id":"rlpyelbr"}
+{"time":"2026-02-26T02:35:51.628916168Z","level":"INFO","msg":"stream: started","id":"rlpyelbr"}
+{"time":"2026-02-26T02:35:51.629290334Z","level":"INFO","msg":"handler: started","stream_id":"rlpyelbr"}
+{"time":"2026-02-26T02:35:51.629363486Z","level":"INFO","msg":"writer: started","stream_id":"rlpyelbr"}
+{"time":"2026-02-26T02:35:51.629407467Z","level":"INFO","msg":"sender: started","stream_id":"rlpyelbr"}
