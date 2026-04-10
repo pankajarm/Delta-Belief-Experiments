@@ -17,8 +17,15 @@
 [![Project Page](https://img.shields.io/badge/Project-Page-blue.svg)](https://bethgelab.github.io/delta-belief-rl/)
 [![Models](https://img.shields.io/badge/-HuggingFace-3B4252?style=flat&logo=huggingface&logoColor=)](https://huggingface.co/collections/bethgelab/delta-belief-rl)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Fork](https://img.shields.io/badge/Fork_of-bethgelab%2Fdelta--belief--rl-informational)](https://github.com/bethgelab/delta-belief-rl)
 
 </div>
+
+---
+
+> **This repository** is a fork of [bethgelab/delta-belief-rl](https://github.com/bethgelab/delta-belief-rl) with **additional experiments** by [Pankaj Mathur](https://github.com/pankajarm), including a novel AWQ quantized judge configuration and full paper reproduction on 8x A100 80GB GPUs. The original paper and codebase are by Auzina, Struber, Hernandez-Gutierrez, Goel, Prabhu, and Bethge at the Tubingen AI Center.
+
+---
 
 <p align="center">
   <img src="static/images/figure1.png" alt="Main contributions overview" width="60%">
@@ -98,6 +105,78 @@ We use **Turn-wise GRPO**, computing advantages at the turn level rather than ap
   <img src="static/images/user_personalization.png" alt="User Personalization" width="30%">
 </p>
 <p align="center"><em>CIA outperforms StarPO on practical applications: Customer Service (+5–11%) and User Personalization (up to +15%).</em></p>
+
+## Additional Experiments (8x A100 80GB)
+
+The following experiments were conducted by [Pankaj Mathur](https://github.com/pankajarm) to reproduce and extend the paper's results on **8x NVIDIA A100 80GB GPUs**.
+
+### Experiment 1: Paper Reproduction (Full Precision)
+
+**Configuration:** `train_8xa100_paper`
+
+| Component | Setup |
+|:---|:---|
+| Actor | Qwen3-1.7B-SFT + LoRA (rank 64) on 1 GPU |
+| Judge | Qwen3-14B full precision, TP=2 on 6 GPUs |
+| Training | Batch=240, lr=3e-5, 15 epochs, exact paper hyperparameters |
+
+<div align="center">
+
+| Training Step | Validation Samples | Wins | Mean@4 |
+|:---:|:---:|:---:|:---:|
+| 0 (baseline) | 792 | 76 | 9.6% |
+| 4 | 792 | 111 | **14.0%** |
+| 5 | 792 | 106 | 13.4% |
+| 8 | 792 | 87 | 11.0% |
+| 9 | 792 | 100 | 12.6% |
+
+</div>
+
+### Experiment 2: AWQ Quantized Judge (Novel)
+
+> This experiment is **not in the original paper**. It demonstrates that DeltaBelief-RL works with INT4 quantized judges, dramatically lowering the hardware barrier.
+
+Instead of running a single full-precision Qwen3-14B judge with TP=4, we use **Qwen3-14B-AWQ (INT4 quantized)** with TP=1 and **7 data-parallel replicas** across 7 GPUs. This increases judge throughput while freeing GPU memory.
+
+**Configuration:** `train_8xa100_awq_dp7`
+
+| Component | Setup |
+|:---|:---|
+| Actor | Qwen3-1.7B-SFT + LoRA (rank 64) on GPU 0 |
+| Judge | Qwen3-14B-AWQ (INT4), TP=1, **DP=7** on GPUs 1-7 |
+| GPU Utilization | 94.5% stable |
+| Key Fixes | MarlinLinearKernel disabled, FlashAttention 3 -> 2 (A100 compatibility) |
+
+<div align="center">
+
+| Training Step | Samples | Wins | Success Rate | Note |
+|:---:|:---:|:---:|:---:|:---|
+| 0 (baseline) | 792 | 81 | 10.2% (Mean@4) | |
+| 9 | 792 | 94 | 11.9% | |
+| 12 | 792 | 102 | 12.9% | |
+| 16 | 792 | 126 | 15.9% | |
+| 17 | 1584 | 224 | 14.1% (Mean@8) | Doubled validation samples |
+| 20 | 1584 | 265 | 16.7% | |
+| **24** | **1584** | **292** | **18.4% (Mean@8)** | **Pass@8 = 48.0%** |
+
+</div>
+
+**Key takeaway:** The AWQ experiment achieves **18.4% Mean@8 and 48.0% Pass@8** at step 24 (training still in progress at step 23/60). This demonstrates that DeltaBelief-RL works effectively with quantized judges — each INT4 judge replica fits on a single GPU (vs TP=2+ for full precision), enabling 7x data parallelism on the same 7-GPU budget.
+
+### Infrastructure Innovations
+
+- **Watchdog auto-restart** (`watchdog.sh`): Monitors training, detects OOM/crashes, auto-restarts with checkpoint resume
+- **HF checkpoint backup** (`hf_backup.sh`): Automated upload of checkpoints to HuggingFace Hub
+- **vLLM A100 fixes**: Disabled `MarlinLinearKernel` to avoid CUDA illegal memory access on vLLM 0.10.2; FlashAttention 3 -> 2 fallback (FA3 requires Hopper; A100 is Ampere)
+- **Memory optimization**: `gpu_memory_utilization=0.60`, `kv_cache_memory_bytes=35GB` for stable 94.5% GPU utilization
+
+### Validation Artifacts
+
+Raw validation trajectories (JSONL) for all experiments are in the `validation/` directory:
+- `validation/train_8xa100_paper/` — Steps 0, 4, 5, 8, 9 (198 secrets, n=4 per secret)
+- `validation/train_8xa100_awq_dp7/` — Steps 0, 9, 12, 16, 17, 20, 24 (198 secrets, n=4 then n=8)
+
+Each JSONL line contains: `secret`, `input`, `output`, `score`, `game_status`, `reward`, `num_questions`, `log_prob_reward`, `log_prob_diff`.
 
 ## Installation
 
@@ -179,6 +258,22 @@ actor_rollout_ref.ngpus=1 # GPUs for the questioner model
 judge_rollout.ngpus=1     # GPUs for the judge model
 ```
 
+### 8x A100 GPU Configuration
+
+For running on 8x A100 80GB GPUs without SLURM:
+
+```bash
+# Set credentials as environment variables
+export WANDB_API_KEY="your-wandb-key"
+export HF_TOKEN="your-hf-token"  # only needed for hf_backup.sh
+
+# Full precision judge (paper reproduction)
+bash launch_train_8xa100.sh
+
+# AWQ quantized judge (novel configuration — 7x judge throughput)
+bash launch_train_8xa100_awq.sh
+```
+
 ### SLURM Clusters
 
 The setup script (`scripts/slurm_setup.sh`) handles Ray initialization, port allocation, and GPU memory checks automatically. For SLURM-managed clusters, the `SLURM_JOB_ID` is detected automatically; for other environments, set it manually in the script.
@@ -224,6 +319,17 @@ delta-belief-rl/
       archivePrefix={arXiv},
       primaryClass={cs.LG},
       url={https://arxiv.org/abs/2602.12342}, 
+}
+```
+
+If you use the additional experiments or AWQ configuration from this fork, please also cite:
+
+```bibtex
+@software{mathur2026deltabeliefexperiments,
+  author = {Mathur, Pankaj},
+  title = {Delta-Belief-Experiments: Reproducing and Extending ΔBelief-RL with AWQ Quantization},
+  year = {2026},
+  url = {https://github.com/pankajarm/Delta-Belief-Experiments},
 }
 ```
 
