@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+title: "Delta-Belief-Experiments: Reproducing and Extending ΔBelief-RL with AWQ Quantization"
+message: "If you use this repository, please cite the original paper below."
+type: software
+authors:
+  - family-names: Mathur
+    given-names: Pankaj
+repository-code: "https://github.com/pankajarm/Delta-Belief-Experiments"
+license: MIT
+preferred-citation:
+  type: article
+  title: "Intrinsic Credit Assignment for Long Horizon Interaction"
+  authors:
+    - family-names: Auzina
+      given-names: Ilze Amanda
+    - family-names: "Str\xFCber"
+      given-names: Joschka
+    - family-names: "Hern\xE1ndez-Guti\xE9rrez"
+      given-names: Sergio
+    - family-names: Goel
+      given-names: Shashwat
+    - family-names: Prabhu
+      given-names: Ameya
+    - family-names: Bethge
+      given-names: Matthias
+  year: 2026
+  identifiers:
+    - type: other
+      value: "arXiv:2602.12342"
+  url: "https://arxiv.org/abs/2602.12342"
