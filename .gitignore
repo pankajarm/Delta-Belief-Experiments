@@ -10,3 +10,11 @@ nohup.out
 *.bak.*
 uv.lock
 wandb/
+
+# Secrets & environment
+.env
+.env.*
+*.secret
+
+# OS
+.DS_Store

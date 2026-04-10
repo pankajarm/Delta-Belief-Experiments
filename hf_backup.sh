@@ -3,7 +3,7 @@
 set -euo pipefail
 
 HF_REPO="pankajmathur/delta-belief-rl-8xa100"
-HF_TOKEN="***REMOVED_HF_TOKEN***"
+HF_TOKEN="${HF_TOKEN:?Set HF_TOKEN env var}"
 CKPT_DIR="/home/ubuntu/delta-belief-rl/checkpoints/delta_belief_rl/train_8xa100_paper"
 
 cd /home/ubuntu/delta-belief-rl

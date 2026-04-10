@@ -12,8 +12,8 @@ set -euo pipefail
 mkdir -p .local_logs
 
 # W&B config (MUST be set before slurm_setup.sh which sets defaults via :=)
-export WANDB_API_KEY="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"
-export WANDB_ENTITY="yaagi"
+export WANDB_API_KEY="${WANDB_API_KEY:?Set WANDB_API_KEY env var}"
+export WANDB_ENTITY="${WANDB_ENTITY:-yaagi}"
 export WANDB_PROJECT="delta_belief_rl"
 
 # Initialize ray
